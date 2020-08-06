@@ -1,5 +1,19 @@
 .App {
   text-align: center;
-  overflow: auto;
-  height:  100%;
+  overflow: hidden;
+}
+
+.sidebarTableContainer {
+  display: flex;
+  flex-direction: row;
+  margin:0 0.815%;
+}
+
+.sidebarTableContainer > div {
+  min-width: 74%;
+  margin-left: 0;
+}
+.sidebarTableContainer > div:first-of-type {
+  min-width: 26%;
+  margin-right: 0;
 }

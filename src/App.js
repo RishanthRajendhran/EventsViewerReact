@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import SideBar from './components/sideBar';
 import EventsViewer from './components/eventsViewer';
+import data from "./data.js";
+import EventTable from './components/eventTable';
 
 var events = [];
 for(var i=0;i<100;i++) {
@@ -15,10 +17,24 @@ class App extends Component {
     this.state = {
         openEvents : [],
         activeTab: 0,
+        data: []
     }
     this.eventClicked = this.eventClicked.bind(this);
     this.makeActiveTab = this.makeActiveTab.bind(this);
     this.closeTab = this.closeTab.bind(this);
+    this.closeAllTabs = this.closeAllTabs.bind(this);
+  }
+
+  componentWillMount() {
+    this.setState({
+      data: data
+    });
+  }
+
+  closeAllTabs() {
+    this.setState({
+      openEvents: []
+    });
   }
 
   eventClicked(index) {
@@ -42,11 +58,10 @@ class App extends Component {
     if(!this.state.openEvents.includes(index)) {
       return;
     }
-    if(this.state.activeTab === index) {
-      console.log("Here");
+    if(this.state.activeTab == index) {
       var nextTab;
-      if(this.state.openEvents.indexOf(index) === this.state.openEvents.length-1) {
-        if(this.state.openEvents.length===1) {
+      if(this.state.openEvents.indexOf(index) == this.state.openEvents.length-1) {
+        if(this.state.openEvents.length==1) {
           nextTab = this.state.openEvents[0];
         } else {
           nextTab = this.state.openEvents[this.state.openEvents.length-2];
@@ -54,13 +69,12 @@ class App extends Component {
       } else {
         nextTab = this.state.openEvents[this.state.openEvents.indexOf(index) + 1];
       }
-      console.log(nextTab);
       this.setState({
         activeTab: nextTab
       });
     }
     this.setState({
-      openEvents: this.state.openEvents.filter((event) => event!=index),
+      openEvents: this.state.openEvents.filter((event) => event!= index),
     });
     return;
   }
@@ -68,8 +82,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <EventsViewer openEvents={this.state.openEvents} closeTab={this.closeTab} activeTab={this.state.activeTab} makeActiveTab={this.makeActiveTab}/>
-        <SideBar events={events} eventClicked={this.eventClicked}/>
+        <EventsViewer openEvents={this.state.openEvents} closeAllTabs={this.closeAllTabs} closeTab={this.closeTab} activeTab={this.state.activeTab} makeActiveTab={this.makeActiveTab}/>
+        <div className="sidebarTableContainer">
+          <div>
+            <SideBar events={events} eventClicked={this.eventClicked}/>
+          </div>
+          <div>
+            {this.state.openEvents.length ? <EventTable data={this.state.data} activeTab={this.state.activeTab}/> : <div></div>}
+          </div>
+        </div>
       </div>
     );
   }
