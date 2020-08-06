@@ -39,3 +39,7 @@
 .eventTableEntry:nth-of-type(even) {
     background-color: aliceblue;
 }
+
+.eventTableEntry:hover {
+    background-color: blanchedalmond;
+}

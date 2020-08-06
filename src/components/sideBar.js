@@ -20,7 +20,7 @@ class SideBar extends Component {
         var activeTabOption = tabOptions.filter((tabOption) => tabOptions.indexOf(tabOption)==this.props.activeTab)[0];
         if(activeTabOption) {
             activeTabOption.style.backgroundColor = "azure";
-            activeTabOption.scrollIntoViewIfNeeded()
+            activeTabOption.scrollIntoViewIfNeeded(activeTabOption.preventDefault);
         }
     }
 

@@ -48,6 +48,10 @@
     font-weight: 800;
 }
 
+.eventTab:hover {
+    background-color: lightgray;
+}
+
 .active {
     border-bottom-color: bisque;
     background-color: bisque;

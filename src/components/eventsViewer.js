@@ -21,7 +21,7 @@ class EventsViewer extends Component {
             curTab.classList.add("active");
         }
         //In case of overflow due to large number of tabs, scrollIntoView will help scroll automatically such that the active tab is visible
-        curTab.scrollIntoViewIfNeeded();
+        curTab.scrollIntoViewIfNeeded(curTab.preventDefault);
         tabs.filter(tab => tab.innerText.match(/(\d+)/)[0] != this.props.activeTab).forEach((tab) => tab.classList.remove("active"));
     }
 
