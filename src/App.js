@@ -86,7 +86,7 @@ class App extends Component {
         <EventsViewer openEvents={this.state.openEvents} closeAllTabs={this.closeAllTabs} closeTab={this.closeTab} activeTab={this.state.activeTab} makeActiveTab={this.makeActiveTab}/>
         <div className="sidebarTableContainer">
           <div>
-            <SideBar events={events} eventClicked={this.eventClicked} activeTab={this.state.activeTab}/>
+            <SideBar events={events} eventClicked={this.eventClicked} activeTab={this.state.activeTab} openEvents={this.state.openEvents}/>
           </div>
           <div>
             {this.state.openEvents.length ? <EventTable data={this.state.data} activeTab={this.state.activeTab}/> : <div></div>}

@@ -17,6 +17,7 @@ class SideBar extends Component {
     componentDidUpdate() {
         var tabOptions = document.getElementsByClassName("eventsOption");
         tabOptions = Array.from(tabOptions);
+        tabOptions.forEach((tabOption) => tabOption.style.backgroundColor = "lightgray");
         var activeTabOption = tabOptions.filter((tabOption) => tabOptions.indexOf(tabOption)==this.props.activeTab)[0];
         if(activeTabOption) {
             activeTabOption.style.backgroundColor = "azure";
