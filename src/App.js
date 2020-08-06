@@ -15,7 +15,6 @@ class App extends Component {
     this.state = {
         openEvents : [],
         activeTab: 0,
-        // prevActiveTab: 0,
     }
     this.eventClicked = this.eventClicked.bind(this);
     this.makeActiveTab = this.makeActiveTab.bind(this);
@@ -35,7 +34,6 @@ class App extends Component {
 
   makeActiveTab(index) {
     this.setState({
-      // prevActiveTab: this.state.activeTab,
       activeTab: index
     });
   }
@@ -70,7 +68,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <EventsViewer openEvents={this.state.openEvents} closeTab={this.closeTab} activeTab={this.state.activeTab} makeActiveTab={this.makeActiveTab} /*prevActiveTab={this.state.prevActiveTab}*//>
+        <EventsViewer openEvents={this.state.openEvents} closeTab={this.closeTab} activeTab={this.state.activeTab} makeActiveTab={this.makeActiveTab}/>
         <SideBar events={events} eventClicked={this.eventClicked}/>
       </div>
     );

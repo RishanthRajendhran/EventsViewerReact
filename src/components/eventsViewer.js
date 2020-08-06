@@ -12,16 +12,8 @@ class EventsViewer extends Component {
         tabs = Array.from(tabs);
         if(tabs.length === 0)
             return;
-        // var prevTab;
         var curTab;
-        // prevTab = tabs.filter(tab => tab.innerText.match(/(\d+)/)[0] == this.props.prevActiveTab)[0];
         curTab = tabs.filter(tab => tab.innerText.match(/(\d+)/)[0] == this.props.activeTab)[0];
-        // console.log(this.props.prevActiveTab + " , " + this.props.activeTab);
-        // if(prevTab) {
-        //     prevTab.classList.remove("active");
-        // console.log(prevTab.innerText);
-
-        // }
         if(curTab) {
             curTab.classList.add("active");
         console.log(curTab.innerText);
