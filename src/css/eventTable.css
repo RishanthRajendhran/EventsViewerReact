@@ -15,7 +15,7 @@
 .eventTableEntry {
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: flex-start;
     border: 1px solid gray;
     margin:0;
     padding-left: 1%;
@@ -30,6 +30,10 @@
     align-items: flex-start;
     line-height: 0%;
     font-size: 0.8rem;
+}
+
+.eventTableEntry:nth-of-type(odd) {
+    background-color: white;
 }
 
 .eventTableEntry:nth-of-type(even) {

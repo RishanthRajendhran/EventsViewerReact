@@ -14,6 +14,25 @@ function EventDisplay({events,eventClicked}) {
 
 class SideBar extends Component {
 
+    componentDidUpdate() {
+        var tabOptions = document.getElementsByClassName("eventsOption");
+        tabOptions = Array.from(tabOptions);
+        var activeTabOption = tabOptions.filter((tabOption) => tabOptions.indexOf(tabOption)==this.props.activeTab)[0];
+        if(activeTabOption) {
+            activeTabOption.style.backgroundColor = "azure";
+            activeTabOption.scrollIntoViewIfNeeded()
+        }
+    }
+
+    componentWillUpdate() {
+        var tabOptions = document.getElementsByClassName("eventsOption");
+        tabOptions = Array.from(tabOptions);
+        var activeTabOption = tabOptions.filter((tabOption) => tabOptions.indexOf(tabOption)==this.props.activeTab)[0];
+        if(activeTabOption) {
+            activeTabOption.style.backgroundColor = "lightgray";
+        }
+    }
+
     render() {
         return(
             <div className="sideBarContainer">

@@ -16,7 +16,7 @@ class App extends Component {
     super(props);
     this.state = {
         openEvents : [],
-        activeTab: 0,
+        activeTab: -1,
         data: []
     }
     this.eventClicked = this.eventClicked.bind(this);
@@ -33,7 +33,8 @@ class App extends Component {
 
   closeAllTabs() {
     this.setState({
-      openEvents: []
+      openEvents: [],
+      activeTab: -1
     });
   }
 
@@ -85,7 +86,7 @@ class App extends Component {
         <EventsViewer openEvents={this.state.openEvents} closeAllTabs={this.closeAllTabs} closeTab={this.closeTab} activeTab={this.state.activeTab} makeActiveTab={this.makeActiveTab}/>
         <div className="sidebarTableContainer">
           <div>
-            <SideBar events={events} eventClicked={this.eventClicked}/>
+            <SideBar events={events} eventClicked={this.eventClicked} activeTab={this.state.activeTab}/>
           </div>
           <div>
             {this.state.openEvents.length ? <EventTable data={this.state.data} activeTab={this.state.activeTab}/> : <div></div>}

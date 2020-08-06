@@ -2,10 +2,9 @@ import React, { Component } from "react";
 import "../css/eventTable.css";
 
 function Table({data,activeTab}) {
-    return data.map((entry) => {
-        console.log(entry);
+    return data.map((entry,index) => {
         return(
-            <div className="eventTableEntry">
+            <div key={index} className="eventTableEntry">
                 <div className="entryTimeStamp">
                     <div>
                         <h6>timestamp</h6>
