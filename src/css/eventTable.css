@@ -8,6 +8,7 @@
     border: 1px solid black;
     border-top: none;
     display: flex;
+    margin-left:-0.5%;
     flex-direction: column;
 }
 
